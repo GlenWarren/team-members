@@ -7,13 +7,24 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        $query = User::query();
+
+        if ($request->has('name')) {
+            $query->where('name', 'like', "%{$request->input('name')}%");
+        }
+
+        if ($request->has('email')) {
+            $query->where('email', 'like', "%{$request->input('email')}%");
+        }
+
+        $users = $query->get();
+
         return response()->json(['users' => $users]);
     }
 
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
         $user = User::find($id);
         return response()->json(['user' => $user]);
@@ -47,7 +58,7 @@ class UserController extends Controller
         return response()->json(['user' => $user]);
     }
 
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
         $user = User::find($id);
         $user->delete();

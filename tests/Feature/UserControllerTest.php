@@ -28,7 +28,7 @@ class UserControllerTest extends TestCase
         $this->user2->save();
     }
 
-    public function test_index(): void
+    public function test_index_no_filter(): void
     {
         $response = $this->getJson('api/users');
 
@@ -38,6 +38,30 @@ class UserControllerTest extends TestCase
         $this->assertEquals([
             $this->user1->toArray(),
             $this->user2->toArray(),
+        ], $response['users']);
+    }
+
+    public function test_index_with_name_filter(): void
+    {
+        $response = $this->getJson('api/users?name=Felix');
+
+        $response->assertStatus(200);
+
+        $this->arrayHasKey('users', $response);
+        $this->assertEquals([
+            $this->user2->toArray(),
+        ], $response['users']);
+    }
+
+    public function test_index_with_email_filter(): void
+    {
+        $response = $this->getJson('api/users?email=garfield@gmail.com');
+
+        $response->assertStatus(200);
+
+        $this->arrayHasKey('users', $response);
+        $this->assertEquals([
+            $this->user1->toArray(),
         ], $response['users']);
     }
 
