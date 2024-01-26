@@ -18,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/users', 'UserController@index');
+Route::get('/users', 'App\Http\Controllers\UserController@index');
 
-Route::get('/users/{id}', 'UserController@show');
+Route::get('/users/{id}', 'App\Http\Controllers\UserController@show');
 
-Route::post('/users', 'UserController@store');
+Route::post('/users', 'App\Http\Controllers\UserController@store');
 
-Route::put('/users{id}', 'UserController@update');
+Route::put('/users/{id}', 'App\Http\Controllers\UserController@update');
 
-Route::delete('/users/{id}', 'UserController@destroy');
+Route::delete('/users/{id}', 'App\Http\Controllers\UserController@destroy');
