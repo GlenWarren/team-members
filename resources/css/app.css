@@ -1,6 +1,20 @@
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 100vh; */
-  }
+    height: 100vh;
+} */
+
+.grey {
+  color: grey;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.team-member {
+  border-bottom: 2px solid #edebeb;
+  padding: 0px 20px 20px 20px;
+}

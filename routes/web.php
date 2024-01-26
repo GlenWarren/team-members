@@ -15,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('team_members');
-})
-->name('application');
+});
+
+Route::get('/our-team', function () {
+    return view('team_members');
+});
+
+Route::get('/profile', function () {
+    return view('create_profile');
+});
