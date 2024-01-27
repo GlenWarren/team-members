@@ -1,25 +1,30 @@
 <template>
-    <h1>
-        Our team
-    </h1>
-    <p class="grey">
-        We're a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.
-    </p>
-    <br>
-    <ul>
-        <li v-for="user in users" :key="user.id">
-            <div class="team-member">
-                <p>
-                    {{ user.name }}
-                </p>
-
-                <p class="grey">
-                    {{ user.email }}
-                </p>
-            </div>
-            <br>
-        </li>
-    </ul>
+    <div class="component">
+        <h1>
+            Our team
+        </h1>
+        <p class="grey blurb">
+            We're a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.
+        </p>
+        <ul>
+            <li v-for="user in users" :key="user.id">
+                <div class="team-member">
+                    <div class="round-image-container">
+                        <img :src="user.image_url" alt="Profile Image" class="round-image" />
+                    </div>
+                    <div>
+                        <p class="name">
+                            {{ user.name }}
+                        </p>
+                        <p class="grey email">
+                            {{ user.email }}
+                        </p>
+                    </div>
+                </div>
+                <br>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
