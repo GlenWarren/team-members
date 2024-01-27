@@ -1,6 +1,10 @@
-## Tips
+## Run local servers
 
-### Seed users into the DB
+`php artisan serve`
+
+`npm run dev`
+
+## Seed users into the DB
 
 ```
 php artisan db:seed --class=UserSeeder
